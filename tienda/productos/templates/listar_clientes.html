@@ -1,0 +1,19 @@
+def listar_clientes(request):
+clientes = Cliente.objects.all()
+return render(request, 'listar_clientes.html', {'clientes': clientes})
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Lista de Clientes</title>
+</head>
+<body>
+<h1>Lista de Clientes</h1>  
+<ul>
+ {% for cliente in clientes %}   
+ <li>{{ cliente.nombre }} - {{ cliente.email }} - {{ cliente.telefono }}</li>
+ {% endfor %}
+</ul> 
+</body>
+</html>
